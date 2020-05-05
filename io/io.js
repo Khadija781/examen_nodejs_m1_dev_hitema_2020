@@ -1,5 +1,11 @@
-module.exports.decodeHexFileContent = (filePath) =>  {
+module.exports.decodeHexFileContent = (filePath) => {
     return new Promise((resolve, reject) => {
-        // To be implemented!
+        if (reject) { console.log(reject); }
+
+        var content = fs.readFileSync(filePath, 'utf8');
+        content = Buffer.from(content, 'hex').toString('utf8');
+
+        if (content)
+            resolve(content)
     });
 }
